@@ -10,9 +10,11 @@ class FormContact extends Component {
   nameInputId = nanoid();
 
   HandeleSabmit = (e) => {
+    const { name, number } = this.state;
     e.preventDefault();
 
-    this.props.onSubmit(this.state);
+    this.props.onSubmit(name, number);
+
     this.reset();
   };
 
@@ -26,7 +28,7 @@ class FormContact extends Component {
   };
 
   render() {
-    const { name } = this.state;
+    const { name, number } = this.state;
     return (
       <>
         <form onSubmit={this.HandeleSabmit}>
@@ -43,11 +45,12 @@ class FormContact extends Component {
               onChange={this.handeleChange}
             />
           </label>
-          <label name="name" id={this.nameInputId}>
+          <label id={this.nameInputId}>
             Телефон
             <input
               id={this.nameInputId}
               type="tel"
+              value={number}
               name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -57,13 +60,6 @@ class FormContact extends Component {
           </label>
           <button type="submit">Добавить контакт</button>
         </form>
-
-        <p>Контакты</p>
-        <ul>
-          <li>Rosie Simpson</li>
-          <li>Hermione Kline</li>
-          <li>Eden Clements</li>
-        </ul>
       </>
     );
   }
