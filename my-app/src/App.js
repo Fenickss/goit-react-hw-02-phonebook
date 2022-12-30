@@ -28,11 +28,19 @@ class App extends Component {
     }));
   };
 
+  getVisibleContacts = () => {
+    const { contacts, filter } = this.state;
+
+    return contacts.filter(({ name }) =>
+      name.toLowerCase().includes(filter.toLowerCase())
+    );
+  };
+
   render() {
     return (
       <>
         <FormContact onSubmit={this.addContactName} />
-        <ContactList name={this.state.contacts.name} />
+        {/* <ContactList contacts={this.getVisibleContacts()} /> */}
       </>
     );
   }
