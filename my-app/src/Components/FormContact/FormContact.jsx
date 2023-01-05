@@ -28,7 +28,7 @@ class FormContact extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label id={shortid.generate()}>
+        <label htmlFor={shortid.generate()}>
           Имя
           <input
             id={shortid.generate()}
@@ -42,7 +42,7 @@ class FormContact extends Component {
           />
         </label>
 
-        <label id={shortid.generate()}>
+        <label htmlFor={shortid.generate()}>
           Телефон
           <input
             id={shortid.generate()}

@@ -1,9 +1,9 @@
 import { Component } from "react";
-
+import { nanoid } from "nanoid";
 import "./App.css";
 import FormContact from "./Components/FormContact/FormContact";
 import ContactList from "./Components/ContactList";
-import shortid from "shortid";
+// import shortid from "shortid";
 
 class App extends Component {
   state = {
@@ -22,7 +22,7 @@ class App extends Component {
     const contact = {
       name,
       number,
-      id: shortid.generate(),
+      id: nanoid(),
     };
 
     this.setState((prevState) => ({
