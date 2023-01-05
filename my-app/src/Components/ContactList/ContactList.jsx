@@ -1,9 +1,16 @@
-const ContactList = ({ contacts }) => {
+import React from "react";
+
+const ContactList = ({ contacts }) => (
   <ul>
-    {contacts.map(({ name, id, number }) => {
-      return <li key={id}>{name + ":" + number}</li>;
-    })}
-  </ul>;
-};
+    <p>Contacts</p>
+    {contacts.map(({ name, id }) => (
+      <li key={id}>
+        <p>{name}</p>
+      </li>
+    ))}
+  </ul>
+);
 
 export default ContactList;
+
+// Больше ничего не нужно!!!!!!!!!!!!!!!
