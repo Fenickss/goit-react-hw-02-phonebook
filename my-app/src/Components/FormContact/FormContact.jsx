@@ -1,6 +1,7 @@
 import { Component } from "react";
 import shortid from "shortid";
-
+import style from "./FormContact.module.css";
+console.log(style);
 class FormContact extends Component {
   state = {
     name: "",
@@ -27,10 +28,11 @@ class FormContact extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor={shortid.generate()}>
+      <form className={style.form} onSubmit={this.handleSubmit}>
+        <label className={style.label} htmlFor={shortid.generate()}>
           Имя
           <input
+            className={style.input}
             id={shortid.generate()}
             type="text"
             name="name"
@@ -42,9 +44,10 @@ class FormContact extends Component {
           />
         </label>
 
-        <label htmlFor={shortid.generate()}>
+        <label className={style.label} htmlFor={shortid.generate()}>
           Телефон
           <input
+            className={style.input}
             id={shortid.generate()}
             type="tel"
             name="number"
@@ -55,7 +58,9 @@ class FormContact extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className={style.btn} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }

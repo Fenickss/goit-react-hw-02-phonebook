@@ -1,12 +1,17 @@
 import React from "react";
-
+import style from "./ContactList.module.css";
 const ContactList = ({ contacts }) => (
-  <ul>
+  <ul className={style.list}>
     <p>Contacts</p>
     {contacts.map(({ name, id, number }) => (
-      <li key={id}>
-        <p>{name}</p>
-        <p>{number}</p>
+      <li className={style.item} key={id}>
+        <p>
+          {name}
+          {"---------->"}
+          {number}
+        </p>
+
+        <button className={style.btn} type="button"></button>
       </li>
     ))}
   </ul>

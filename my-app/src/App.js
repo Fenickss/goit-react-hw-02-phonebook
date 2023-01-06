@@ -1,8 +1,10 @@
 import { Component } from "react";
 import { nanoid } from "nanoid";
-import "./App.css";
+
 import FormContact from "./Components/FormContact/FormContact";
 import ContactList from "./Components/ContactList";
+import Container from "./Components/Container";
+
 // import shortid from "shortid";
 
 class App extends Component {
@@ -37,10 +39,10 @@ class App extends Component {
   render() {
     const { contacts } = this.state;
     return (
-      <>
+      <Container>
         <FormContact onSubmit={this.addContact} />
         <ContactList contacts={contacts} />
-      </>
+      </Container>
     );
   }
 }
